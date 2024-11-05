@@ -12,7 +12,7 @@ namespace Level
 	private:
 		sf::RenderWindow* game_window;
 		LevelController* level_controller;
-		BoxDimensions box_dimenson;
+		BoxDimensions box_dimensions;
 
 		UI::UIElement::ImageView* background_image;
 		UI::UIElement::ImageView* box_image;
@@ -30,6 +30,9 @@ namespace Level
 		void drawLevel();
 		void deleteImages();
 		void calculateBoxDimensions();
+		void calculateBoxWidthHeight();
+		void calculateBoxSpacing();
+		sf::Vector2f calculateBoxPosition(int index);
 		UI::UIElement::ImageView* getBoxOverlayImage(BlockType block_type);
 		void drawBox(sf::Vector2f position);
 		void drawBoxValue(sf::Vector2f position, BlockType blockTypeToDraw);
