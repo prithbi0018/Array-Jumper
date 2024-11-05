@@ -1,5 +1,6 @@
 #include "../../header/Level/LevelService.h"
 #include "../../header/Level/LevelController.h"
+#include "../../header/Level/LevelModel.h"
 
 namespace Level
 {
@@ -32,5 +33,9 @@ namespace Level
 	void LevelService::destroy()
 	{
 		delete(level_controller);
+	}
+	BoxDimensions LevelService::getBoxDimensions()
+	{
+		return level_controller->getBoxDimensions();
 	}
 }
