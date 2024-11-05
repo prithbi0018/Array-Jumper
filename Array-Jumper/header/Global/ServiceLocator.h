@@ -14,6 +14,7 @@ namespace Global
         Sound::SoundService* sound_service;
         UI::UIService* ui_service;
 
+
         ~ServiceLocator();
 
         void createServices();
