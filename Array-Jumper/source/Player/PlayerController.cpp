@@ -1,6 +1,7 @@
 #include "../../header/Player/PlayerController.h"
 #include "../../header/Player/PlayerModel.h"
 #include "../../header/Player/PlayerView.h"
+
 #include "../../header/Player/MovementDirection.h"
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Sound/SoundService.h"
@@ -10,6 +11,11 @@ namespace Player
 	using namespace Level;
 	using namespace Global;
 	using namespace Sound;
+
+=======
+
+namespace Player
+{
 
 	PlayerController::PlayerController()
 	{
@@ -24,7 +30,10 @@ namespace Player
 
 	void PlayerController::initialize()
 	{
+
 		event_service = ServiceLocator::getInstance()->getEventService();
+=======
+
 		player_model->initialize();
 		player_view->initialize();
 	}
@@ -32,7 +41,10 @@ namespace Player
 	void PlayerController::update()
 	{
 		player_view->update();
+
 		readInput();	
+=======
+
 	}
 
 	void PlayerController::render()
@@ -81,6 +93,8 @@ namespace Player
 			move(MovementDirection::BACKWARD);
 		}
 	}
+=======
+
 
 	PlayerState PlayerController::getPlayerState()
 	{
@@ -101,5 +115,8 @@ namespace Player
 	{
 		return player_model->getCurrentPosition();
 	}
+
+
+=======
 
 }
