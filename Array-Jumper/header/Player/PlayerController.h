@@ -1,5 +1,6 @@
 #pragma once
 #include "../Event/EventService.h"
+#include "../Level/BlockType.h"
 
 namespace Player
 {
@@ -16,7 +17,9 @@ namespace Player
 		Event::EventService* event_service;
 
 		void move(MovementDirection direction);
+		void jump(MovementDirection direction);
 		bool isPositionInBound(int targetPosition);
+		Level::BlockType getCurrentBoxValue(int currentPosition);
 		void readInput();
 		void destroy();
 

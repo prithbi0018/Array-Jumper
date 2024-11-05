@@ -6,7 +6,7 @@ namespace Level
 	class LevelModel;
 	class LevelView;
 	struct BoxDimensions;
-	
+	enum BlockType;
 
 	class LevelController
 	{
