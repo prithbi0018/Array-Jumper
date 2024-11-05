@@ -36,6 +36,9 @@ namespace Global
 		event_service->initialize();
 		sound_service->initialize();
 		ui_service->initialize();
+		player_service->initialize();
+
+
 	}
 
 	void ServiceLocator::update()

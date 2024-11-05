@@ -5,6 +5,8 @@ namespace Level
 {
 	class LevelModel;
 	class LevelView;
+	struct BoxDimensions;
+	
 
 	class LevelController
 	{
@@ -25,6 +27,7 @@ namespace Level
 		void update();
 		void render();
 
-		BlockType getCurrentBoxValue(int currentPosition);
+		BlockType getCurrentBoxValue(int currentPosition); BoxDimensions getBoxDimensions();
+		BoxDimensions getBoxDimensions();
 	};
 }

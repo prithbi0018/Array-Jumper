@@ -10,6 +10,10 @@ namespace Level
 		level_model = new LevelModel();
 		level_view = new LevelView(this);
 	}
+	BoxDimensions LevelController::getBoxDimensions()
+	{
+		return level_view->getBoxDimensions();
+	}
 
 	LevelController::~LevelController()
 	{

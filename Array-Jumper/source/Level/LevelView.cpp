@@ -162,6 +162,10 @@ namespace Level
 		overlay_image->setPosition(position);
 		overlay_image->render();
 	}
+	BoxDimensions LevelView::getBoxDimensions()
+	{
+		return box_dimensions;
+	}
 
 
 }
