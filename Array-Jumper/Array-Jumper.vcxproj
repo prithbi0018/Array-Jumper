@@ -138,6 +138,7 @@
     <ClCompile Include="source\Event\EventService.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="source\Global\ServiceLocator.cpp" />
+    <ClCompile Include="source\Level\BlockType.cpp" />
     <ClCompile Include="source\Level\LevelController.cpp" />
     <ClCompile Include="source\Level\LevelModel.cpp" />
     <ClCompile Include="source\Level\LevelService.cpp" />
@@ -163,7 +164,9 @@
   <ItemGroup>
     <ClInclude Include="header\Global\Config.h" />
     <ClInclude Include="header\Event\EventService.h" />
+    <ClInclude Include="header\Level\BlockType.h" />
     <ClInclude Include="header\Level\LevelController.h" />
+    <ClInclude Include="header\Level\LevelData.h" />
     <ClInclude Include="header\Level\LevelModel.h" />
     <ClInclude Include="header\Level\LevelService.h" />
     <ClInclude Include="header\Player\PlayerController.h" />
