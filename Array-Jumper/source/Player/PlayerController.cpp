@@ -86,11 +86,17 @@ namespace Player
 	{
 		if (event_service->pressedRightArrowKey() || event_service->pressedDKey())
 		{
-			move(MovementDirection::FORWARD);
+			if (event_service->heldSpaceKey())
+				jump(MovementDirection::FORWARD);
+			else
+				move(MovementDirection::FORWARD);
 		}
 		if (event_service->pressedLeftArrowKey() || event_service->pressedAKey())
 		{
-			move(MovementDirection::BACKWARD);
+			if (event_service->heldSpaceKey())
+				jump(MovementDirection::BACKWARD);
+			else
+				move(MovementDirection::BACKWARD);;
 		}
 	}
 =======
@@ -114,6 +120,33 @@ namespace Player
 	int PlayerController::getCurrentPosition()
 	{
 		return player_model->getCurrentPosition();
+	}
+	BlockType PlayerController::getCurrentBoxValue(int currentPosition)
+	{
+		return ServiceLocator::getInstance()->getLevelService()->getCurrentBoxValue(currentPosition);
+	}
+	void PlayerController::jump(MovementDirection direction)
+	{
+		int current_position = player_model->getCurrentPosition();
+		BlockType box_value = ServiceLocator::getInstance()->getLevelService()->getCurrentBoxValue(current_position);
+		int steps, targetPosition;
+		switch (direction)
+		{
+		case MovementDirection::FORWARD:
+			steps = box_value;
+			break;
+		case MovementDirection::BACKWARD:
+			steps = -box_value;
+			break;
+		default:
+			steps = 0;
+			break;
+		}
+		targetPosition = current_position + steps;
+		if (!isPositionInBound(targetPosition))
+			return;
+		player_model->setCurrentPosition(targetPosition);
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::JUMP);
 	}
 
 
