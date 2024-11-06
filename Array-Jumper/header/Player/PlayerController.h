@@ -1,13 +1,9 @@
 #pragma once
 
 #include "../Event/EventService.h"
-<<<<<<< HEAD
+
 #include "../Level/BlockType.h"
-=======
-=======
 
-
->>>>>>> 737d5aff4ae649e3d2ade538e822d3ff503d12ef
 
 namespace Player
 {
@@ -31,7 +27,7 @@ namespace Player
 		bool isPositionInBound(int targetPosition);
 		Level::BlockType getCurrentBoxValue(int currentPosition);
 		void readInput();
-=======
+
 
 		void destroy();
 
@@ -45,6 +41,7 @@ namespace Player
 
 		PlayerState getPlayerState();
 		void setPlayerState(PlayerState new_player_state);
+		void takeDamage();
 
 		int getCurrentPosition();
 	};
