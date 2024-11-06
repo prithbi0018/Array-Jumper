@@ -152,6 +152,10 @@ namespace Player
 	}
 	void PlayerController::takeDamage()
 	{
+		resetPlayer();
+	}
+	void PlayerController::resetPlayer()
+	{
 		player_model->resetPlayer();
 
 	}
