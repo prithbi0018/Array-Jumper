@@ -12,7 +12,7 @@ namespace Player
 	using namespace Global;
 	using namespace Sound;
 
-=======
+
 
 namespace Player
 {
@@ -32,7 +32,7 @@ namespace Player
 	{
 
 		event_service = ServiceLocator::getInstance()->getEventService();
-=======
+
 
 		player_model->initialize();
 		player_view->initialize();
@@ -43,7 +43,7 @@ namespace Player
 		player_view->update();
 
 		readInput();	
-=======
+
 
 	}
 
@@ -73,6 +73,8 @@ namespace Player
 		}
 		player_model->setCurrentPosition(targetPosition);
 		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::MOVE);
+		ServiceLocator::getInstance()->getGameplayService()->onPositionChanged(targetPosition);
+
 	}
 	bool PlayerController::isPositionInBound(int targetPosition)
 	{
@@ -99,7 +101,6 @@ namespace Player
 				move(MovementDirection::BACKWARD);;
 		}
 	}
-=======
 
 
 	PlayerState PlayerController::getPlayerState()
@@ -147,9 +148,15 @@ namespace Player
 			return;
 		player_model->setCurrentPosition(targetPosition);
 		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::JUMP);
+		ServiceLocator::getInstance()->getGameplayService()->onPositionChanged(targetPosition);
+	}
+	void PlayerController::takeDamage()
+	{
+		player_model->resetPlayer();
+
 	}
 
 
-=======
+
 
 }
