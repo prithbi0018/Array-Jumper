@@ -6,6 +6,7 @@
 
 
 
+
 namespace UI
 {
     using namespace Main;
@@ -15,6 +16,7 @@ namespace UI
     using namespace Instructions;
     using namespace Global;
     using namespace UIElement;
+    using namespace GameplayUI;
 
     UIService::UIService()
     {
@@ -24,6 +26,9 @@ namespace UI
         instructions_ui_controller = nullptr;
 
         createControllers();
+        instructions_ui_controller = nullptr;
+        gameplay_ui_controller = nullptr;
+
     }
 
     UIService::~UIService()
@@ -43,6 +48,7 @@ namespace UI
     {
         initializeUIElements();
         initializeControllers();
+        gameplay_ui_controller->initialize();
     }
 
     void UIService::initializeControllers()
@@ -56,6 +62,9 @@ namespace UI
     void UIService::initializeUIElements()
     {
         TextView::initializeTextView();
+           case GameState::GAMEPLAY:
+               gameplay_ui_controller->update();
+               break;
     }
 
     void UIService::update()
@@ -107,5 +116,7 @@ namespace UI
         delete(main_menu_ui_controller);
         delete(credits_screen_ui_controller);
         delete(instructions_ui_controller);
+        delete(instructions_ui_controller);
+        delete(gameplay_ui_controller);
     }
 }
