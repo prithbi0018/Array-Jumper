@@ -77,4 +77,13 @@ namespace Gameplay
 		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::LEVEL_COMPLETE);
 		GameService::setGameState(GameState::CREDITS);
 	}
+	void GameplayController::gameOver()
+	{
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::DEATH);
+		GameService::setGameState(GameState::CREDITS);
+	}
+	void GameplayController::onDeath()
+	{
+		gameOver();
+	}
 }
