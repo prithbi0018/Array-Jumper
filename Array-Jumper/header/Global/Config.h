@@ -21,6 +21,7 @@ namespace Global
         static const sf::String outscal_logo_texture_path;
         static const sf::String play_button_texture_path;
         static const sf::String quit_button_texture_path;
+         static const sf::String game_won_sound_path;
 
         // Fonts
         static const sf::String bubble_bobble_font_path;
@@ -33,5 +34,6 @@ namespace Global
         static const sf::String jump_sound_path;
         static const sf::String level_complete_sound_path;
         static const sf::String move_sound_path;
+        static const sf::String game_won_sound_path;
     };
 }

@@ -32,4 +32,14 @@ namespace Gameplay
 	{
 		gameplay_controller->onPositionChanged(position);
 	}
+
+	void GameplayService::onDeath()
+	{
+		gameplay_controller->onDeath();
+	}
+
+	void GameplayService::startGame()
+	{
+		gameplay_controller->startGame();
+	}
 }

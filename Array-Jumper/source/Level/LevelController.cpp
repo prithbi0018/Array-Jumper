@@ -45,6 +45,7 @@ namespace Level
 		return level_model->getCurrentBoxValue(currentPosition);
 
 	}
+
 	bool LevelController::isLastLevel()
 	{
 		return level_model->isLastLevel();
@@ -64,5 +65,6 @@ namespace Level
 	{
 		level_model->reset();
 	}
+
 
 }	

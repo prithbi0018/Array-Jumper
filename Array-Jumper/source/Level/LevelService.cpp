@@ -42,6 +42,7 @@ namespace Level
 	{
 		return level_controller->getCurrentBoxValue(currentPosition);
 	}
+
 	int LevelService::getCurrentLevelNumber()
 	{
 		return level_controller->getCurrentLevelNumber();
@@ -61,4 +62,5 @@ namespace Level
 	{
 		level_controller->resetLevels();
 	}
+
 }

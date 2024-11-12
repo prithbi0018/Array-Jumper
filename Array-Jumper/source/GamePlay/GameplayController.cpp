@@ -12,10 +12,7 @@ namespace Gameplay
 
 	GameplayController::GameplayController()
 	{
-		if (isEndBlock(value))
-		{
-			processEndBlock();
-		}
+
 	}
 
 	GameplayController::~GameplayController()
@@ -62,7 +59,13 @@ namespace Gameplay
 			processObstacle();
 		}
 
+		if (isEndBlock(value))
+		{
+			processEndBlock();
+		}
+
 	}
+
 	bool GameplayController::isEndBlock(Level::BlockType value)
 	{
 		if (value == Level::BlockType::TARGET)
@@ -71,10 +74,52 @@ namespace Gameplay
 		}
 		return false;
 	}
+
 	void GameplayController::processEndBlock()
 	{
 		ServiceLocator::getInstance()->getPlayerService()->levelComplete();
 		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::LEVEL_COMPLETE);
+		if (isLastLevel())
+		{
+			gameWon();
+			return;
+		}
+
+		loadNextLevel();
+	}
+
+	void GameplayController::gameOver()
+	{
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::DEATH);
 		GameService::setGameState(GameState::CREDITS);
+	}
+
+	void GameplayController::onDeath()
+	{
+		gameOver();
+	}
+
+	bool GameplayController::isLastLevel()
+	{
+		return ServiceLocator::getInstance()->getLevelService()->isLastLevel();
+	}
+
+	void GameplayController::gameWon()
+	{
+		GameService::setGameState(GameState::CREDITS);
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::GAME_WON);
+	}
+
+	void GameplayController::loadNextLevel()
+	{
+		ServiceLocator::getInstance()->getLevelService()->loadNextLevel();
+	}
+
+	void GameplayController::startGame()
+	{
+		GameService::setGameState(GameState::GAMEPLAY);
+		ServiceLocator::getInstance()->getLevelService()->resetLevels();
+		ServiceLocator::getInstance()->getPlayerService()->resetPlayer();
+
 	}
 }

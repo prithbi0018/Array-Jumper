@@ -23,6 +23,7 @@ namespace Level
 	}
 	BlockType LevelModel::getCurrentBoxValue(int currentPosition)
 	{
+
 		return level_configuration.levels[current_level_index].level_boxes[currentPosition];
 	}
 	void LevelModel::loadNextLevel()
@@ -48,4 +49,8 @@ namespace Level
 	{
 		current_level_index = 0;
 	}
+=======
+		return current_level_data.level_boxes[currentPosition];
+	}
+
 }
