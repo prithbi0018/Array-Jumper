@@ -1,8 +1,9 @@
 #pragma once
+
 #include "LevelData.h"
 
 #include "LevelConfiguration.h"
-=======
+
 
 
 namespace Level
@@ -11,10 +12,11 @@ namespace Level
 	{
 	private:
 
+
 	
 		LevelConfiguration level_configuration;
 		int current_level_index;
-=======
+
 
 
 	public:
@@ -24,12 +26,16 @@ namespace Level
 		void initialize();
 		void update();
 
+		BlockType getCurrentBoxValue(int currentPosition);
+
 		void loadNextLevel();
 		int getCurrentLevelNumber();
 		bool isLastLevel();
 		void reset();
 
+
 		BlockType getCurrentBoxValue(int currentPosition);
+
 
 	};
 
